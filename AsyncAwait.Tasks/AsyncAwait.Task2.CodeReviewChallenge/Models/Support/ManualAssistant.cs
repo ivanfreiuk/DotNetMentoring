@@ -18,8 +18,8 @@ public class ManualAssistant : IAssistant
     {
         try
         {
-            await _supportService.RegisterSupportRequestAsync(requestInfo);
-            
+            await _supportService.RegisterSupportRequestAsync(requestInfo).ConfigureAwait(false);
+
             return await _supportService.GetSupportInfoAsync(requestInfo)
                 .ConfigureAwait(false);
         }

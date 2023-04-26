@@ -7,7 +7,7 @@ internal static class Calculator
 {
     public static async Task<long> CalculateAsync(int n , CancellationToken token)
     {
-        return await Task.Run(() =>
+        return await Task.Run(async () =>
         {
 
             long sum = 0;
@@ -17,7 +17,7 @@ internal static class Calculator
                 // i + 1 is to allow 2147483647 (Max(Int32)) 
                 token.ThrowIfCancellationRequested();
                 sum = sum + (i + 1);
-                Thread.Sleep(10);
+                await Task.Delay(10).ConfigureAwait(false);
             }
 
             return sum;
