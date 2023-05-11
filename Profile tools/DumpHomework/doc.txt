@@ -1,0 +1,6 @@
+Excetion type FormatException
+
+Reason: incorrect input parsing. Convert.ToDouble tries to parse '+'
+
+Possible fixes: add regular expression to validate user input of use double.TryParse method and show dialog window 
+with error message.
